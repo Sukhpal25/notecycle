@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Layout from '../../components/layout'
 import { supabase } from '../../utils/supabase'
+import type { Course } from '../../types'
 
 export default function Courses() {
-  const [courses, setCourses] = useState<any[]>([])
+  const [courses, setCourses] = useState<Course[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -37,10 +38,10 @@ export default function Courses() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {courses.map((course) => (
               <Link href={`/courses/${course.id}`} key={course.id} className="block">
-                <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                  <h2 className="text-gray-600 text-xl font-semibold">{course.code}</h2>
-                  <p className="text-gray-600">{course.name}</p>
-                  <p className="text-sm text-gray-500 mt-2">Subject: {course.subject}</p>
+                <div className="border rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
+                  <h2 className="text-xl font-semibold text-gray-900">{course.code}</h2>
+                  <p className="text-gray-700">{course.name}</p>
+                  <p className="text-sm text-gray-600 mt-2">Subject: {course.subject}</p>
                 </div>
               </Link>
             ))}

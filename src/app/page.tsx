@@ -5,26 +5,23 @@ export default function Home() {
   return (
     <Layout>
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        {/* Title Section Above Image */}
-        <div className="text-center mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Welcome to NoteCycle
-          </h1>
-        </div>
-
-        {/* Hero Section with Image */}
+        {/* Hero Section with Gradient Background */}
         <div className="relative">
-          {/* Hero Image */}
-          <div className="relative h-[600px] w-full rounded-xl overflow-hidden">
-            <Image
-              src="/images/main.webp" // Your image path
-              alt="NoteCycle Hero Image"
-              fill
-              priority
-              className="object-cover"
-            />
-            {/* Overlay for better image contrast */}
-            
+          <div className="relative h-[400px] w-full rounded-xl overflow-hidden bg-gradient-to-r from-[#002851] to-[#004b9b]">
+            {/* Decorative elements */}
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute inset-0 bg-[linear-gradient(45deg,#ffffff33_25%,transparent_25%,transparent_50%,#ffffff33_50%,#ffffff33_75%,transparent_75%,transparent)]" />
+            </div>
+          </div>
+
+          {/* Text overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
+              Welcome to NoteCycle
+            </h1>
+            <p className="text-xl md:text-2xl text-center max-w-2xl">
+              Share and access UC Davis lecture notes, empowering student success through collaborative learning.
+            </p>
           </div>
         </div>
 

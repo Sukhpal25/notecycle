@@ -5,13 +5,14 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import Layout from '../../../components/layout'
 import { supabase } from '../../../utils/supabase'
+import type { Course, Note } from '../../../types'
 
 export default function CourseNotes() {
   const params = useParams()
   const courseId = params.id
 
-  const [course, setCourse] = useState<any>(null)
-  const [notes, setNotes] = useState<any[]>([])
+  const [course, setCourse] = useState<Course | null>(null)
+  const [notes, setNotes] = useState<Note[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -64,10 +65,10 @@ export default function CourseNotes() {
             <h2 className="text-xl text-gray-700 mb-6">{course?.name}</h2>
             <div className="space-y-4">
               {notes.map((note) => (
-                <div key={note.id} className="border rounded-lg p-4">
-                  <h3 className="text-lg font-semibold">{note.title}</h3>
-                  <p className="text-sm text-gray-500">Professor: {note.professors.name}</p>
-                  <p className="text-sm text-gray-500">Uploaded: {new Date(note.created_at).toLocaleDateString()}</p>
+                <div key={note.id} className="border rounded-lg p-4 bg-white">
+                  <h3 className="text-lg font-semibold text-gray-900">{note.title}</h3>
+                  <p className="text-gray-700">Professor: {note.professors?.name}</p>
+                  <p className="text-gray-700">Uploaded: {new Date(note.created_at).toLocaleDateString()}</p>
                   <div className="mt-2">
                     <Link href={`/notes/${note.id}`} className="text-blue-600 hover:underline">
                       View Note

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Layout from '../../components/layout'
 import { supabase } from '../../utils/supabase'
-
+ 
 export default function UploadNote() {
   const [title, setTitle] = useState('')
   const [file, setFile] = useState<File | null>(null)
