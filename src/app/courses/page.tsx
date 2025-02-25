@@ -38,7 +38,7 @@ export default function Courses() {
             {courses.map((course) => (
               <Link href={`/courses/${course.id}`} key={course.id} className="block">
                 <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                  <h2 className="text-xl font-semibold">{course.code}</h2>
+                  <h2 className="text-gray-600 text-xl font-semibold">{course.code}</h2>
                   <p className="text-gray-600">{course.name}</p>
                   <p className="text-sm text-gray-500 mt-2">Subject: {course.subject}</p>
                 </div>

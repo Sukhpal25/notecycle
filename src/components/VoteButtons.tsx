@@ -47,15 +47,21 @@ export default function VoteButtons({ noteId, initialUpvotes, initialDownvotes }
     <div className="flex items-center space-x-4">
       <button
         onClick={() => handleVote(true)}
-        className={`px-2 py-1 rounded ${userVote === true ? 'bg-green-500 text-white' : 'bg-gray-200'}`}
+        className={`px-3 py-2 rounded-md flex items-center space-x-2 ${
+          userVote === true ? 'bg-green-500 text-white' : 'bg-gray-200 hover:bg-gray-300'
+        }`}
       >
-        👍 {upvotes}
+        <span>👍</span>
+        <span className="text-gray-900 font-medium">{upvotes}</span> {/* Added text-gray-900 and font-medium */}
       </button>
       <button
         onClick={() => handleVote(false)}
-        className={`px-2 py-1 rounded ${userVote === false ? 'bg-red-500 text-white' : 'bg-gray-200'}`}
+        className={`px-3 py-2 rounded-md flex items-center space-x-2 ${
+          userVote === false ? 'bg-red-500 text-white' : 'bg-gray-200 hover:bg-gray-300'
+        }`}
       >
-        👎 {downvotes}
+        <span>👎</span>
+        <span className="text-gray-900 font-medium">{downvotes}</span> {/* Added text-gray-900 and font-medium */}
       </button>
     </div>
   )
